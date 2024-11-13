@@ -1,6 +1,6 @@
 # 🐤 Watermark Anything
 
-Implementation and pretrained models for the paper [**Watermark Anything**](https://arxiv.org/abs/ARXIV_LINK). 
+Implementation and pretrained models for the paper [**Watermark Anything**](https://arxiv.org/abs/2411.07231). 
 Our approach allows for embedding (possibly multiple) localized watermarks into images.
 
 <!-- [[`Webpage`](...)] -->
