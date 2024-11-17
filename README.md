@@ -42,7 +42,7 @@ For training our models we use the [COCO](https://cocodataset.org/#home) dataset
 
 ## Inference
 
-See `notebooks/inference.ipynb` for a notebook with the following scripts as well as vizualizations.
+See `notebooks/inference.ipynb` for a notebook with the following scripts as well as visualizations.
 
 <details>
 <summary>Imports, load model and specify folder with images to watermark:</summary>
