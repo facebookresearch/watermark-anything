@@ -16,7 +16,7 @@ import torchvision.transforms as transforms
 import torchvision.transforms.functional as F
 from torchvision.transforms.functional import InterpolationMode
 
-from watermark_anything.augmentation.valuemetric import JPEG, Brightness
+from wam.augmentation.valuemetric import JPEG, Brightness
 
 
 class Identity(nn.Module):

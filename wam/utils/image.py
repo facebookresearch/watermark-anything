@@ -10,7 +10,6 @@ from PIL import Image
 import torch
 import torchvision.transforms as transforms
 
-from watermark_anything.data.metrics import bit_accuracy
 
 def jpeg_compress(image: torch.Tensor, quality: int) -> torch.Tensor:
     """

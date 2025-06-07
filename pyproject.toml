@@ -1,0 +1,82 @@
+[build-system]
+requires = ["flit_core >=3.2,<4", "packaging~=23.1", "setuptools~=67.8", "wheel~=0.40"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "wam"
+readme = "README.md"
+authors = [{name = "Facebook AI Research"}]
+requires-python = ">=3.8"
+dynamic = ["version", "description"]
+
+
+# zip_safe = false
+classifiers=[
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering",
+    "Development Status :: 4 - Beta",
+]
+
+dependencies = [
+  "pycocotools",
+  "omegaconf",
+  "timm",
+  "opencv-python",
+  "lpips",
+  "scikit-image",
+  "scikit-learn",
+  "einops; python_version >= '3.10'",
+  "torch>=2.5.0",
+]
+
+[project.urls]
+  Source = "https://github.com/facebookresearch/watermark-anything"
+  Tracker = "https://github.com/facebookresearch/watermark-anything/issues"
+
+[project.optional-dependencies]
+  dev = [
+    "pytest",
+    "black",
+    "isort",
+    "flake8",
+    "pre-commit",
+  ]
+
+[tool.setuptools.package-data]
+"wam" = ["py.typed"]
+
+[tool.flake8]
+extend_ignore = ["E", "Y"]  # Black
+per-file-ignores = [
+    "__init__.py:F401",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+disable_error_code = "type-abstract,typeddict-unknown-key"
+disallow_untyped_calls = false
+disallow_untyped_defs = false
+disallow_untyped_decorators = false
+ignore_missing_imports = true
+python_version = 3.10
+show_error_codes = true
+show_error_context = true
+strict = false
+warn_unused_configs = false
+warn_unused_ignores = false
+exclude = ["notebooks", "configs", "assets", "checkpoints", "tests"]
+
+[tool.pytest.ini_options]
+minversion = "7.1"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore:Deprecated call to `pkg_resources",
+    "ignore:Please use `line_search_wolfe",
+    "ignore:Please use `spmatrix",
+    "ignore:TypedStorage is deprecated",
+    "ignore:distutils Version classes are deprecated",
+    "ignore:pkg_resources is deprecated",
+    "ignore:torch.nn.utils.weight_norm is deprecated in favor of",
+]
