@@ -211,7 +211,6 @@ for img_ in os.listdir(img_dir):
 ### Pretraining
 
 Pretraining for robustness:
-
 ```cmd
 torchrun --nproc_per_node=2  train.py \
     --local_rank -1  --output_dir <PRETRAINING_OUTPUT_DIRECTORY> \
@@ -222,6 +221,12 @@ torchrun --nproc_per_node=2  train.py \
     --nbits 32 --scaling_i 1.0 --scaling_w 0.3 \
     --train_dir <COCO_TRAIN_DIRECTORY_PATH> --train_annotation_file <COCO_TRAIN_ANNOTATION_FILE_PATH> \
     --val_dir <COCO_VALIDATION_DIRECTORY_PATH> --val_annotation_file <COCO_VALIDATION_ANNOTATION_FILE_PATH> 
+```
+
+To run on 8 GPUs, start instead with:
+```cmd
+torchrun --nproc_per_node=8 train.py \
+    --local_rank 0 --debug_slurm --output_dir <PRETRAINING_OUTPUT_DIRECTORY>\
 ```
 
 
@@ -241,6 +246,13 @@ torchrun --nproc_per_node=8 train.py \
     --val_dir <COCO_VALIDATION_DIRECTORY_PATH> --val_annotation_file <COCO_VALIDATION_ANNOTATION_FILE_PATH>
 ```
 
+### Examples
+
+Logs for the open-sourced models are available here:
+- [Pretraining](https://dl.fbaipublicfiles.com/watermark_anything/logs/pretrain_coco.stdout)
+- [Finetuning](https://dl.fbaipublicfiles.com/watermark_anything/logs/posttrain_coco.stdout)
+
+Arguments for each of these runs are available at the beginning of the logs.
 
 ## License
 
